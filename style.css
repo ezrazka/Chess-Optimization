@@ -1,0 +1,188 @@
+:root {
+	--background-color: #111;
+	--light-square-color: antiquewhite;
+	--dark-square-color: green;
+	--highlighted-square-color: rgba(255, 255, 0, 0.5);
+	--legal-square-color: rgba(255, 0, 0, 0.5);
+	--promotion-menu-color: rgb(250, 250, 250);
+	--promotion-menu-highlighted-color: rgb(220, 220, 220);
+	--promotion-cancel-button-color: rgb(200, 200, 200);
+	--promotion-cancel-button-highlighted-color: rgb(180, 180, 180);
+	--cancel-button-image: url(./assets/images/cancel.png);
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: var(--background-color);
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#board {
+	width: min(100vw, 100vh, 32rem);
+	height: min(100vw, 100vh, 32rem);
+	background-color: black;
+	font-size: min(3vw, 3vh, 0.9rem);
+	display: flex;
+	flex-direction: column;
+}
+
+.rank {
+	height: 4rem;
+	width: 32rem;
+	display: flex;
+}
+
+.square {
+	position: relative;
+	width: 4rem;
+	height: 4rem;
+}
+
+.rank:nth-of-type(odd) .square:nth-of-type(odd),
+.rank:nth-of-type(even) .square:nth-of-type(even) {
+	background-color: var(--light-square-color);
+	color: var(--dark-square-color);
+}
+
+.rank:nth-of-type(odd) .square:nth-of-type(even),
+.rank:nth-of-type(even) .square:nth-of-type(odd) {
+	background-color: var(--dark-square-color);
+	color: var(--light-square-color);
+}
+
+.notation-letter,
+.notation-number {
+	position: absolute;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	user-select: none;
+}
+
+.notation-letter {
+	right: 0.25em;
+	bottom: 0.25em;
+}
+
+.notation-number {
+	left: 0.25em;
+	top: 0.25em;
+}
+
+.square-highlight {
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+	background-color: var(--highlighted-square-color);
+}
+
+.square-legal {
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+	background-color: var(--legal-square-color);
+}
+
+.square-outline {
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+	outline: 0.25em solid rgba(255, 255, 255, 0.5);
+	outline-offset: -0.25em;
+}
+
+.piece-icon {
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+	background-size: contain;
+	cursor: grab;
+}
+
+.piece-icon.dragging {
+	cursor: grabbing;
+	z-index: 1;
+}
+
+.promotion-menu-top {
+	position: absolute;
+	width: 4rem;
+	height: 18rem;
+	border-radius: 0.4rem;
+	background-color: var(--promotion-menu-color);
+	box-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.65);
+	cursor: pointer;
+}
+
+.promotion-menu-bottom {
+	position: absolute;
+	width: 4rem;
+	height: 18rem;
+	border-radius: 0.4rem;
+	background-color: var(--promotion-menu-color);
+	box-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.65);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.promotion-square {
+	position: relative;
+	width: 4rem;
+	height: 4rem;
+}
+
+.promotion-square:hover {
+	background-color: var(--promotion-menu-highlighted-color);
+}
+
+.promotion-piece-icon {
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+	background-size: contain;
+}
+
+.promotion-cancel-button {
+	position: relative;
+	width: 4rem;
+	height: 2rem;
+	background-color: var(--promotion-cancel-button-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.promotion-menu-top .promotion-cancel-button {
+	border-bottom-left-radius: 0.4rem;
+	border-bottom-right-radius: 0.4rem;
+}
+
+.promotion-menu-bottom .promotion-cancel-button {
+	border-top-left-radius: 0.4rem;
+	border-top-right-radius: 0.4rem;
+}
+
+.promotion-cancel-button:hover {
+	background-color: var(--promotion-cancel-button-highlighted-color);
+}
+
+.promotion-cancel-symbol {
+	width: 25%;
+	height: 50%;
+	background-image: var(--cancel-button-image);
+	filter: invert() brightness(50%);
+	background-size: contain;
+}

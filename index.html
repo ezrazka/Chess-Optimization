@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess vs. AI</title>
+    <link rel="icon" type="image/png" href="assets/images/black-knight.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="chessLogic/webAssembly/exports.js" defer></script>
+    <script src="frontendLogic/ChessBoard.js" defer></script>
+    <script src="frontendLogic/DragAndDrop.js" defer></script>
+    <script src="frontendLogic/BoardDisplay.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div id="board">
+        </div>
+    </div>
+    <script>
+        const board = document.getElementById("board");
+
+        for (let rank = 1; rank <= 8; rank++) {
+            const rankDiv = document.createElement("div");
+            rankDiv.classList.add("rank");
+
+            for (let file = 1; file <= 8; file++) {
+                const squareDiv = document.createElement("div");
+                squareDiv.classList.add("square");
+
+                const positionCharacter = String.fromCharCode('a'.charCodeAt(0) + (file - 1));
+                const position = positionCharacter + (9 - rank);
+                const index = (8 - rank) * 8 + (file - 1);
+                squareDiv.dataset.position = position;
+                squareDiv.dataset.index = index;
+
+                rankDiv.appendChild(squareDiv);
+            }
+
+            board.appendChild(rankDiv);
+        }
+    </script>
+</body>
+</html>
