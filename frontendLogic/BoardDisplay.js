@@ -56,18 +56,18 @@ class BoardDisplay {
 
     getPieceImagePathFromSymbol(pieceLetter) {
         switch (pieceLetter) {
-            case "K": return "../assets/images/white-king.png";
-            case "Q": return "../assets/images/white-queen.png";
-            case "R": return "../assets/images/white-rook.png";
-            case "N": return "../assets/images/white-knight.png";
-            case "B": return "../assets/images/white-bishop.png";
-            case "P": return "../assets/images/white-pawn.png";
-            case "k": return "../assets/images/black-king.png";
-            case "q": return "../assets/images/black-queen.png";
-            case "r": return "../assets/images/black-rook.png";
-            case "n": return "../assets/images/black-knight.png";
-            case "b": return "../assets/images/black-bishop.png";
-            case "p": return "../assets/images/black-pawn.png";
+            case "K": return "assets/images/white-king.png";
+            case "Q": return "assets/images/white-queen.png";
+            case "R": return "assets/images/white-rook.png";
+            case "N": return "assets/images/white-knight.png";
+            case "B": return "assets/images/white-bishop.png";
+            case "P": return "assets/images/white-pawn.png";
+            case "k": return "assets/images/black-king.png";
+            case "q": return "assets/images/black-queen.png";
+            case "r": return "assets/images/black-rook.png";
+            case "n": return "assets/images/black-knight.png";
+            case "b": return "assets/images/black-bishop.png";
+            case "p": return "assets/images/black-pawn.png";
         }
     }
 
